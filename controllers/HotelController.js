@@ -1,6 +1,6 @@
 import { formValidate } from '../modules/helpers'
 import { errorResponseHandle, successResponse } from '../modules/responser'
-import { saveHotel, getHotelsData, getHotelById, setUpdateHotel } from '../modules/hotel'
+import { saveHotel, getHotelsData, getHotelById, setUpdateHotel, setDeleteHotel } from '../modules/hotel'
 
 export const createHotel = async (req, res) => {
   try {
@@ -40,6 +40,18 @@ export const hotelUpdate = async (req, res) => {
     await setUpdateHotel(req, id)
 
     return successResponse(res, null, 'Hotel updated')
+  } catch (error) {
+    return errorResponseHandle(error, res)
+  }
+}
+
+export const hotelDelete = async (req, res) => {
+  try {
+    const { id } = req.params
+    await getHotelById(id, res)
+    await setDeleteHotel(id)
+
+    return successResponse(res, null, 'Hotel Deleted')
   } catch (error) {
     return errorResponseHandle(error, res)
   }

@@ -25,3 +25,7 @@ export const setUpdateHotel = async (req, id) => {
   const { hotelName, address } = req.body
   await Hotel.update({ hotel_name: hotelName, address }, { id })
 }
+
+export const setDeleteHotel = async (id) => {
+  await Hotel.destroy({ id })
+}
