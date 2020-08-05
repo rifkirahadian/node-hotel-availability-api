@@ -1,7 +1,7 @@
 
 exports.up = function (knex) {
   return knex.schema
-    .createTable('stays', function (table) {
+    .createTable('stay_rooms', function (table) {
       table.increments('id')
       table.integer('stay_id').unsigned().notNullable()
       table.foreign('stay_id').references('id').inTable('stays')
@@ -12,5 +12,5 @@ exports.up = function (knex) {
 }
 
 exports.down = function (knex) {
-  return knex.schema.dropTable('stays')
+  return knex.schema.dropTable('stay_rooms')
 }
