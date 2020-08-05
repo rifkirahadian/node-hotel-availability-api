@@ -1,7 +1,10 @@
 {
     "cSpell.words": [
+        "Modelbase",
         "Rifki",
         "checkin",
+        "knexfile",
+        "pluggable",
         "postgresql"
     ]
 }
