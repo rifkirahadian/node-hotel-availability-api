@@ -13,12 +13,11 @@ export const getHotelsData = async () => {
 }
 
 export const getHotelById = async (id, res) => {
-  const data = await Hotel.findById(id)
-  if (!data) {
+  try {
+    return await Hotel.findById(id)
+  } catch (error) {
     throw errorResponse(res, 'Hotel not found')
   }
-
-  return data.toJSON()
 }
 
 export const setUpdateHotel = async (req, id) => {
