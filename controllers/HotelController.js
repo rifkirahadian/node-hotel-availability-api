@@ -5,8 +5,8 @@ import { saveHotel, getHotelsData, getHotelById, setUpdateHotel, setDeleteHotel 
 export const createHotel = async (req, res) => {
   try {
     formValidate(req, res)
-    const { hotelName, address } = req.body
-    await saveHotel(hotelName, address)
+    const { hotelName, address, defaultRoomPrice } = req.body
+    await saveHotel(hotelName, address, defaultRoomPrice)
 
     return successResponse(res, null, 'Hotel added')
   } catch (error) {
@@ -23,9 +23,9 @@ export const getHotels = async (req, res) => {
 export const getHotel = async (req, res) => {
   try {
     const { id } = req.params
-    const { hotel_name: hotelName, address } = await getHotelById(id, res)
+    const { hotel_name: hotelName, address, default_room_price: defaultRoomPrice } = await getHotelById(id, res)
 
-    return successResponse(res, { hotelName, address }, null)
+    return successResponse(res, { hotelName, address, defaultRoomPrice }, null)
   } catch (error) {
     return errorResponseHandle(error, res)
   }

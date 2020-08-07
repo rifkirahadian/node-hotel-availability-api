@@ -5,6 +5,7 @@ exports.up = function (knex) {
       table.increments('id')
       table.string('hotel_name', 150).notNullable()
       table.text('address').notNullable()
+      table.integer('default_room_price')
       table.timestamps()
     })
 }
