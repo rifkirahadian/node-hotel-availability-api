@@ -2,7 +2,7 @@ import { Room } from '../models/Room'
 import { errorResponse } from './responser'
 
 export const getRoomsDataByHotelId = async (hotelId) => {
-  return Room.where('hotel_id', hotelId).fetchAll({ columns: ['id', 'room_number', 'room_status', 'hotel_id'] })
+  return Room.where('hotel_id', hotelId).fetchAll({ columns: ['id', 'room_number', 'room_status', 'hotel_id', 'price'] })
 }
 
 export const saveRoom = async (roomNumber, hotelId, price) => {
@@ -23,7 +23,8 @@ export const setUpdateRoom = async (hotelId, roomNumber, price, id) => {
 
 export const getRoomById = async (id, res) => {
   try {
-    return Room.findById(id)
+    const room = Room.findById(id)
+    return room.toJSON()
   } catch (error) {
     throw errorResponse(res, 'Room not found')
   }

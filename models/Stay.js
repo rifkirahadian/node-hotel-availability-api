@@ -6,6 +6,9 @@ import bookshelfModelbase from 'bookshelf-modelbase'
 const bookshelfModel = bookshelf(knex)
 bookshelfModel.plugin(bookshelfModelbase.pluggable)
 
-export default bookshelfModel.model('Room', {
-  tableName: 'rooms'
+export default bookshelfModel.model('Stay', {
+  tableName: 'stays',
+  stayRooms: function () {
+    return this.hasMany('StayRoom')
+  }
 })

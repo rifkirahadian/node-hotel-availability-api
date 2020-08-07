@@ -5,6 +5,7 @@
         "checkin",
         "knexfile",
         "pluggable",
-        "postgresql"
+        "postgresql",
+        "randomstring"
     ]
 }

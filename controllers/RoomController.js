@@ -17,12 +17,12 @@ export const getRooms = async (req, res) => {
 
 export const createRoom = async (req, res) => {
   try {
-    const { hotelId, roomNumber } = req.body
+    const { hotelId, roomNumber, price } = req.body
 
     formValidate(req, res)
 
     await getHotelById(hotelId, res)
-    await saveRoom(roomNumber, hotelId)
+    await saveRoom(roomNumber, hotelId, price)
 
     return successResponse(res, null, 'Room saved')
   } catch (error) {
@@ -34,7 +34,7 @@ export const updateRoom = async (req, res) => {
   try {
     formValidate(req, res)
     const { id } = req.params
-    const { hotelId, roomNumber } = req.body
+    const { hotelId, roomNumber, price } = req.body
 
     // validate room and hotel id
     await Promise.all([
@@ -42,7 +42,7 @@ export const updateRoom = async (req, res) => {
       getRoomById(id, res)
     ])
 
-    await setUpdateRoom(hotelId, roomNumber, id)
+    await setUpdateRoom(hotelId, roomNumber, price, id)
 
     return successResponse(res, null, 'Room updated')
   } catch (error) {

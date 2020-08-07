@@ -8,7 +8,8 @@ module.exports = {
     migrations: {
       tableName: 'knex_migrations',
       directory: './database/migrations'
-    }
+    },
+    useNullAsDefault: true
   },
 
   staging: {
