@@ -1,7 +1,7 @@
 import { createHotelValidate } from '../validationRules/hotel'
 import { createHotel, getHotels, getHotel, hotelUpdate, hotelDelete } from '../controllers/HotelController'
-import { createRoomValidate } from '../validationRules/room'
-import { createRoom, getRooms, updateRoom, deleteRoom } from '../controllers/RoomController'
+import { createRoomValidate, createDynamicRoomPriceValidate } from '../validationRules/room'
+import { createRoom, getRooms, updateRoom, deleteRoom, createDynamicRoomPrice } from '../controllers/RoomController'
 import { createReservationValidate } from '../validationRules/reservation'
 import { createReservation } from '../controllers/ReservationController'
 
@@ -18,6 +18,7 @@ module.exports = (app, express) => {
   apiRoutes.get('/rooms', getRooms)
   apiRoutes.put('/room/:id', createRoomValidate, updateRoom)
   apiRoutes.delete('/room/:id', deleteRoom)
+  apiRoutes.post('/room/dynamic/price', createDynamicRoomPriceValidate, createDynamicRoomPrice)
 
   apiRoutes.post('/reservation', createReservationValidate, createReservation)
 
