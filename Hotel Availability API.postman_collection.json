@@ -1,0 +1,604 @@
+{
+	"info": {
+		"_postman_id": "0de6d852-ed76-4a55-9cce-1479b365445f",
+		"name": "Hotel Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Manage Hotel",
+			"item": [
+				{
+					"name": "Create Hotel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"hotelName\" : \"Hotel ABC\",\n\t\"address\" : \"Cipaku\",\n\t\"defaultRoomPrice\" : 1000000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}/api/hotel",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"api",
+								"hotel"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"hotelName\" : \"Hotel ABC\",\n\t\"address\" : \"Cipaku\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}/api/hotel",
+									"host": [
+										"{{app_url}}"
+									],
+									"path": [
+										"api",
+										"hotel"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"27-1xDxfpslSczmZpCisg5i5Wh4aFk\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Aug 2020 07:42:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"Hotel added\"\n    ],\n    \"data\": null\n}"
+						},
+						{
+							"name": "Error ",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"hotelName\" : \"Hotel ABC\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}/api/hotel",
+									"host": [
+										"{{app_url}}"
+									],
+									"path": [
+										"api",
+										"hotel"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-hOVWi0kFj3AaLRGeNsLW3YBa6BM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Aug 2020 08:51:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": [\n        \"Address required\"\n    ],\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "List Hotel",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}/api/hotels",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"api",
+								"hotels"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Hotel",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}/api/hotels",
+									"host": [
+										"{{app_url}}"
+									],
+									"path": [
+										"api",
+										"hotels"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4e-PIyjPjWSBaX4oNT8WNhMa1tlWsk\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 05 Aug 2020 08:50:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": null,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"hotel_name\": \"Hotel ABC\",\n            \"address\": \"Cipaku\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Detail Hotel",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}/api/hotel/1",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"api",
+								"hotel",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Hotel",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"hotelName\" : \"Hotel CDE\",\n\t\"address\" : \"Jalan 123\",\n\t\"defaultRoomPrice\" : 2000000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}/api/hotel/1",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"api",
+								"hotel",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Manage Room",
+			"item": [
+				{
+					"name": "Create Room",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"roomNumber\" : \"121\",\n\t\"hotelId\" : 1,\n\t\"price\" : 300000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}/api/room",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"api",
+								"room"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Room by Hotel Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}/api/rooms?hotelId=1",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"api",
+								"rooms"
+							],
+							"query": [
+								{
+									"key": "hotelId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Room",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"hotelId\" : 2,\n\t\"roomNumber\" : \"Room xyz\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}/api/room/1",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"api",
+								"room",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Room",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}/api/room/1",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"api",
+								"room",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Dynamic Room Price",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"roomId\" : 1,\n\t\"startDate\" : \"2020-09-09\",\n\t\"endDate\" : \"2020-09-23\",\n\t\"price\"\t: 2000000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}/api/room/dynamic/price",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"api",
+								"room",
+								"dynamic",
+								"price"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "Reservation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"roomsId\" : [\n\t\t\t1\n\t\t],\n\t\"customerName\" : \"John Doe\",\n\t\"guestName\" : \"John\",\n\t\"checkinDate\": \"2020-10-13\",\n\t\"checkoutDate\": \"2020-10-14\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}/api/reservation",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"api",
+								"reservation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Available Rooms",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}/api/hotel/rooms/available?checkinDate=2020-10-11&checkoutDate=2020-10-13",
+							"host": [
+								"{{app_url}}"
+							],
+							"path": [
+								"api",
+								"hotel",
+								"rooms",
+								"available"
+							],
+							"query": [
+								{
+									"key": "checkinDate",
+									"value": "2020-10-11"
+								},
+								{
+									"key": "checkoutDate",
+									"value": "2020-10-13"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Available Rooms",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}/api/hotel/rooms/available?checkinDate=2020-10-11&checkoutDate=2020-10-13",
+									"host": [
+										"{{app_url}}"
+									],
+									"path": [
+										"api",
+										"hotel",
+										"rooms",
+										"available"
+									],
+									"query": [
+										{
+											"key": "checkinDate",
+											"value": "2020-10-11"
+										},
+										{
+											"key": "checkoutDate",
+											"value": "2020-10-13"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a-VB1O0COww7y039P6XW85C1kzAG4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 08 Aug 2020 00:20:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": null,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"hotel_name\": \"Hotel ABC\",\n            \"roomsCount\": 2\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
