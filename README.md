@@ -9,4 +9,6 @@ In development mode database using sqlite. But in staging and production mode yo
 
 To use mysql/pg, set .env file using .env.example format
 
+Get API Documentation at "Hotel Availability API.postman_collection.json", import that file at postman
+
 
