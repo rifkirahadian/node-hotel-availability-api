@@ -3,7 +3,7 @@ import { createHotel, getHotels, getHotel, hotelUpdate, hotelDelete } from '../c
 import { createRoomValidate, createDynamicRoomPriceValidate } from '../validationRules/room'
 import { createRoom, getRooms, updateRoom, deleteRoom, createDynamicRoomPrice } from '../controllers/RoomController'
 import { createReservationValidate } from '../validationRules/reservation'
-import { createReservation } from '../controllers/ReservationController'
+import { createReservation, hotelRoomsAvailable } from '../controllers/ReservationController'
 
 module.exports = (app, express) => {
   const apiRoutes = express.Router()
@@ -21,6 +21,7 @@ module.exports = (app, express) => {
   apiRoutes.post('/room/dynamic/price', createDynamicRoomPriceValidate, createDynamicRoomPrice)
 
   apiRoutes.post('/reservation', createReservationValidate, createReservation)
+  apiRoutes.get('/hotel/rooms/available', hotelRoomsAvailable)
 
   app.use('/api', apiRoutes)
 }

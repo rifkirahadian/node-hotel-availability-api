@@ -1,6 +1,6 @@
 import { errorResponseHandle, successResponse } from '../modules/responser'
 import { formValidate } from '../modules/helpers'
-import { roomIdValidate, roomsAvailableCheck, createStayAndStayRoom, setCreateReservation } from '../modules/reservation'
+import { roomIdValidate, roomsAvailableCheck, createStayAndStayRoom, setCreateReservation, getHotelRoomsAvailable } from '../modules/reservation'
 
 export const createReservation = async (req, res) => {
   try {
@@ -14,6 +14,17 @@ export const createReservation = async (req, res) => {
     await createStayAndStayRoom(guestName, roomsId, reservation)
 
     return successResponse(res, reservation, 'Reservation succeed')
+  } catch (error) {
+    return errorResponseHandle(error, res)
+  }
+}
+
+export const hotelRoomsAvailable = async (req, res) => {
+  try {
+    const { checkinDate, checkoutDate } = req.query
+    const data = await getHotelRoomsAvailable(checkinDate, checkoutDate)
+
+    return successResponse(res, data, null)
   } catch (error) {
     return errorResponseHandle(error, res)
   }

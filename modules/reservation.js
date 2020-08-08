@@ -62,3 +62,27 @@ export const createStayAndStayRoom = async (guestName, roomsId, reservation) => 
 
   await Promise.all(stayRoomQueries)
 }
+
+export const getHotelRoomsAvailable = async (startDate, endDate) => {
+  const hotelIdColumnIdentifier = knex.ref('hotels.id')
+  const roomCount = knex('rooms').count('*')
+    .where('hotel_id', hotelIdColumnIdentifier)
+    .whereNotExists(function () {
+      this.select('stay_rooms.id').from('stay_rooms')
+        .whereRaw('room_id=rooms.id')
+        .join('stays', 'stay_id', '=', 'stays.id')
+        .join('reservations', 'reservation_id', '=', 'reservations.id')
+        .where(q => {
+          q.whereBetween('checkin_date', [startDate, endDate])
+            .orWhereBetween('checkout_date', [startDate, endDate])
+        })
+    })
+    .as('roomsCount')
+
+  const hotels = knex('hotels')
+    .whereExists(function () {
+      this.select('*').from('rooms').whereRaw('hotel_id=hotels.id')
+    }).select('id', 'hotel_name', roomCount)
+
+  return hotels
+}
