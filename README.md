@@ -6,6 +6,7 @@ In this system includ
 4. Get available rooms in hotel by date
 
 In development mode database using sqlite. But in staging and production mode you can choose mysql/pg
+
 To use mysql/pg, set .env file using .env.example format
 
 
